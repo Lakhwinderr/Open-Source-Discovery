@@ -92,7 +92,7 @@ While working on this project, I faced challenges such as setting up authenticat
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Lakhwinderr/Open-Source-Discovery/blob/main/LICENCE) file for details.
 
 ## 🤝 Contributions
 
