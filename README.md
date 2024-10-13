@@ -5,7 +5,7 @@
 Open Source Project Discovery is a beginner-friendly platform designed to help aspiring developers and open-source enthusiasts discover interesting GitHub repositories to contribute to. Users can search, explore, and star repositories with ease.
 
 ## 🚀 Demo
-- will be updated and developed soon and link will be updated here
+- will be deployed soon on a live server and link will be updated here.
 - till then you can visit the video link [here](https://youtu.be/KDQmCNigCps?si=7mPueiQfDbocDwfa).
   ![alt text](<Screenshot (102).png>) 
   ![alt text](<Screenshot (103).png>) 
