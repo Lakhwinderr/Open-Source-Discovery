@@ -49,7 +49,10 @@ Open Source Project Discovery is a beginner-friendly platform designed to help a
 3. **Set Up Environment Variables**
 
    Create a `.env` file and configure the necessary variables for MongoDB connection and GitHub API access.
-
+   ```
+   GITHUB_TOKEN
+   MONGODB_CONNECTION_STRING
+   ```
 4. **Start the Development Server**
 
    ```bash
