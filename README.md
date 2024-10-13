@@ -107,6 +107,16 @@ While working on this project, I faced challenges such as setting up authenticat
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/Lakhwinderr/Open-Source-Discovery/blob/main/LICENCE) file for details.
 
+## What's next for Open Source Project Discovery
+
+-  There are issues in setting the correct object data variables to their respective fields like stars and URL of the fetched array of objects of the repository data. 
+- Add user authentication to personalize the experience and allow for secure starring of repositories.
+- Implement more robust features such as the ability to delete or update starred repositories directly from the app.
+- Improve the pagination functionality on the account page for better navigation.
+- Add new features like filtering by issues, contributions, and more personalized repository recommendations.
+- Add integration to send request to the user's GitHub account to directly star from this app. 
+- Deploy the application on a production server with a properly configured domain name.
+
 ## 🤝 Contributions
 
 Contributions are welcome! Please check the [CONTRIBUTING.md](Contributing.md) file for guidelines on how to contribute to this project. Feel free to add new suggestions and changes to the app. Let us make this app more accessible, and productive.
