@@ -36,7 +36,7 @@ Open Source Project Discovery is a beginner-friendly platform designed to help a
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/Lakhwinderr/open-source-project-discovery.git
+   git clone https://github.com/Lakhwinderr/Open-Source-Discovery.git
    cd open-source-project-discovery
    ```
 
