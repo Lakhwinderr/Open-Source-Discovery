@@ -1,4 +1,3 @@
-
 # Contribution Guidelines
 
 Thank you for considering contributing to this project! Please follow these simple steps:
