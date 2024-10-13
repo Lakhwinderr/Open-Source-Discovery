@@ -6,6 +6,7 @@ Open Source Project Discovery is a beginner-friendly platform designed to help a
 
 ## 🚀 Demo
 - will be updated and developed soon and link will be updated here
+- till then you can visit the video link [here](https://youtu.be/KDQmCNigCps?si=7mPueiQfDbocDwfa).
 ## ✨ Features
 
 - **Explore Repositories**: Search and explore repositories by name, stars, forks, language, and more.
