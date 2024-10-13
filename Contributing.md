@@ -23,5 +23,3 @@ Thank you for considering contributing to this project! Please follow these simp
 For Hacktoberfest contributions, please use the **Hacktoberfest** label.
 
 Happy coding!
-```
-
