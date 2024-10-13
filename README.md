@@ -37,7 +37,7 @@ Open Source Project Discovery is a beginner-friendly platform designed to help a
 
    ```bash
    git clone https://github.com/Lakhwinderr/Open-Source-Discovery.git
-   cd open-source-project-discovery
+   cd Open-Source-Discovery
    ```
 
 2. **Install Dependencies**
@@ -92,7 +92,7 @@ While working on this project, I faced challenges such as setting up authenticat
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ## 🤝 Contributions
 
