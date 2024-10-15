@@ -15,6 +15,7 @@ const userSchema = new mongoose.Schema({
     repositories: [
         {
             name: String,
+            id: Number,
             url: String,
             description: String,
             stars: Number,
