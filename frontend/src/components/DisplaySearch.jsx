@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function DisplaySearch({toggleAccount, handleFormSubmit, setQuery,query,language, setLanguage, setSort, sort, minForks, minStars,setMinForks,  setMinStars, searchResults, handleStarRepo, handlePreviousPage, handleNextPage, label, setLabel, page  }) {
+export default function DisplaySearch({toggleAccount, handleFormSubmit, setQuery,query,language, setLanguage, setSort, sort, minForks, minStars,setMinForks,  setMinStars, searchResults, handleStarRepo, handlePreviousPage, handleNextPage, label, setLabel, page, starredRepos  }) {
   return (
     <div className={`mb-8 ${toggleAccount ? "" : "hidden"}`}>
         <form

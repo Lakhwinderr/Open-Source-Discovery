@@ -142,6 +142,7 @@ const SearchComponent = ({
         page = {page}
         handlePreviousPage={handlePreviousPage}
         handleNextPage={handleNextPage}
+        starredRepos={starredRepos}
       />
       <div className={`${toggleAccount ? "hidden": ""}`}>
         <h2 className="text-2xl font-bold mb-4">Starred Repositories</h2>
