@@ -84,7 +84,7 @@ const SearchComponent = ({
 
   const handleStarRepo = async (repo) => {
     const isStarred = starredRepos.find(
-      (starredRepo) => starredRepo._id === repo._id
+      (starredRepo) => starredRepo._id === repo.id
     );
 
     if (!isStarred) {
@@ -98,7 +98,7 @@ const SearchComponent = ({
         language: repo.language,
         labels: repo.labels || [], // Ensure labels are an array, default to empty if not present
         avatar: repo.owner?.avatar_url || "default-avatar-url.jpg", // Use avatar_url or a default placeholder
-        _id: repo._id, // Use the existing repo's ID
+        _id: repo.id, // Use the existing repo's ID
       };
 
       setStarredRepos([...starredRepos, newRepo]);
@@ -114,7 +114,7 @@ const SearchComponent = ({
       }
     } else {
       const updatedStarredRepos = starredRepos.filter(
-        (starredRepo) => starredRepo._id !== repo._id
+        (starredRepo) => starredRepo._id !== repo.id
       );
       setStarredRepos(updatedStarredRepos);
     }
