@@ -84,7 +84,7 @@ export default function DisplaySearch({toggleAccount, handleFormSubmit, setQuery
                   <button
                     className={`absolute top-2 right-2 p-2 rounded-full ${
                       starredRepos.find(
-                        (starredRepo) => starredRepo._id === repo.id
+                        (starredRepo) => starredRepo.id === repo.id
                       )
                         ? "bg-yellow-500"
                         : "bg-gray-300"
