@@ -1,32 +1,22 @@
-const mongoose = require("mongoose");
-require("dotenv").config();
+const z= require('zod')
 
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
+const createUser = z.object({
+    useremail: z.string().email(), 
+    username: z.string()
+})
 
-const db = mongoose.connection;
+const createRepo = z.object({
+            repoId: z.number(),
+            name: z.string(),
+            url: z.string(),
+            description: z.string(),
+            stars: z.number(),
+            forks: z.number(),
+            language: z.string(),
+            labels: z.array(z.string())
+})
 
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-db.once("open", () => {
-    console.log("Connected to MongoDB");
-});
-
-const userSchema = new mongoose.Schema({
-    username: { type: String, required: true, unique: true },
-    repositories: [
-        {
-            repoId: Number,
-            name: String,
-            id: Number,
-            url: String,
-            description: String,
-            stars: Number,
-            forks: Number,
-            language: String,
-            labels: [String],
-            avatar: String
-        }
-    ]
-});
-
-const User = mongoose.model('User', userSchema);
-module.exports = { User: User };
+module.exports = {
+    createRepo: createRepo,
+    createUser: createUser
+}
