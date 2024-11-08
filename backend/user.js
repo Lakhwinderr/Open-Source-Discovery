@@ -27,10 +27,32 @@ router.get('/api/users/:username/repositories', async (req, res) => {
     }
 });
 
+//delete one starred repo from user
+router.put('/api/users/:username/repositories/:id', async (req, res) => {
+    const { username, id } = req.params;
+    try {
+        let user = await User.findOne({ username });
+
+        console.log(id)
+
+        if (!user) {
+            res.status(409).json({ msg: "User not found!" })
+        }
+        
+        const updatedUserRepos = user.repositories.filter((i) => i.repoId !== parseInt(id))
+
+        await User.findOneAndUpdate({ username }, { repositories: updatedUserRepos})
+
+        res.status(200).json(updatedUserRepos);
+    } catch (error) {
+        res.status(500).json({ message: 'Server error', error });
+    }
+});
+
 // Endpoint to add a new repository for a user
 router.post('/api/users/:username/repositories', async (req, res) => {
     const { username } = req.params;
-    const { name, url, description, stars, forks, language, labels, avatar } = req.body;
+    const { repoId, name, url, description, stars, forks, language, labels, avatar } = req.body;
 
     try {
         // Check if the user exists
@@ -43,7 +65,9 @@ router.post('/api/users/:username/repositories', async (req, res) => {
         }
 
         // Create a new repository object
+        console.log("repoId", repoId)
         const newRepository = {
+            repoId,
             name,
             url,
             description,
@@ -55,6 +79,7 @@ router.post('/api/users/:username/repositories', async (req, res) => {
         };
 
         // Add the new repository to the user's repository list
+        console.log("newRepository", newRepository)
         user.repositories.push(newRepository);
         await user.save();
 

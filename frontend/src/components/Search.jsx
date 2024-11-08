@@ -82,14 +82,24 @@ const SearchComponent = ({
     }
   };
 
+  const handleRemoveFromStarred = async (id) => {
+    try {
+      await axios.put(`http://localhost:5000/api/users/lakhwinder/repositories/${id}`);
+      fetchStarredRepos();
+    } catch (error) {
+      console.error("Error remove from starred repositories list", error);
+    }
+  }
+
   const handleStarRepo = async (repo) => {
     const isStarred = starredRepos.find(
-      (starredRepo) => starredRepo._id === repo._id
+      (starredRepo) => starredRepo.repoId === repo.id
     );
 
     if (!isStarred) {
       // Create a new repository object based on the schema
       const newRepo = {
+        repoId: repo.id,
         name: repo.name,
         url: repo.url,
         description: repo.description,
@@ -113,16 +123,36 @@ const SearchComponent = ({
         console.error("Error starring repository", error);
       }
     } else {
-      const updatedStarredRepos = starredRepos.filter(
-        (starredRepo) => starredRepo._id !== repo._id
-      );
-      setStarredRepos(updatedStarredRepos);
+      handleRemoveFromStarred(repo.id)
     }
   };
+
+  const isRepoStarred = (id) => {
+    let isStarred = false;
+
+    for (let item of starredRepos) {
+      if (item.repoId === id) {
+        isStarred = true
+        break
+      }
+    }
+
+    return isStarred
+  }
+
+  const isThisRepoStarred = (id) => {
+    const colorHandler = {
+      stared: 'bg-yellow-500',
+      nonStarred: 'bg-gray-300'
+    }
+
+    return isRepoStarred(id) ? colorHandler.stared : colorHandler.nonStarred
+  }
 
   return (
     <div>
       <DisplaySearch
+        isThisRepoStarred={isThisRepoStarred}
         toggleAccount={toggleAccount}
         handleFormSubmit={handleFormSubmit}
         setQuery={setQuery}
@@ -132,19 +162,19 @@ const SearchComponent = ({
         setSort={setSort}
         sort={sort}
         setMinForks={setMinForks}
-        minForks= {minForks}
+        minForks={minForks}
         minStars={minStars}
         setMinStars={setMinStars}
         searchResults={searchResults}
-        label = {label}
+        label={label}
         setLabel={setLabel}
         handleStarRepo={handleStarRepo}
-        page = {page}
+        page={page}
         handlePreviousPage={handlePreviousPage}
         handleNextPage={handleNextPage}
         starredRepos={starredRepos}
       />
-      <div className={`${toggleAccount ? "hidden": ""}`}>
+      <div className={`${toggleAccount ? "hidden" : ""}`}>
         <h2 className="text-2xl font-bold mb-4">Starred Repositories</h2>
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {starredRepos.map((repo, index) => (

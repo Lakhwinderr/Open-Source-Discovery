@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function DisplaySearch({toggleAccount, handleFormSubmit, setQuery,query,language, setLanguage, setSort, sort, minForks, minStars,setMinForks,  setMinStars, searchResults, handleStarRepo, handlePreviousPage, handleNextPage, label, setLabel, page, starredRepos  }) {
+export default function DisplaySearch({toggleAccount, isThisRepoStarred, handleFormSubmit, setQuery,query,language, setLanguage, setSort, sort, minForks, minStars,setMinForks,  setMinStars, searchResults, handleStarRepo, handlePreviousPage, handleNextPage, label, setLabel, page  }) {
   return (
     <div className={`mb-8 ${toggleAccount ? "" : "hidden"}`}>
         <form
@@ -82,13 +82,7 @@ export default function DisplaySearch({toggleAccount, handleFormSubmit, setQuery
                   className="border p-4 rounded-md shadow-md relative"
                 >
                   <button
-                    className={`absolute top-2 right-2 p-2 rounded-full ${
-                      starredRepos.find(
-                        (starredRepo) => starredRepo.id === repo.id
-                      )
-                        ? "bg-yellow-500"
-                        : "bg-gray-300"
-                    } hover:bg-yellow-400 transition`}
+                    className={`absolute top-2 right-2 p-2 rounded-full ${isThisRepoStarred(repo.id)} hover:bg-yellow-400 transition`}
                     onClick={() => handleStarRepo(repo)}
                   >
                     ⭐
