@@ -91,10 +91,24 @@ const SearchComponent = ({
     }
   }
 
+  const isRepoStarred = (id) => {
+    let isStarred = false;
+
+    for (let item of starredRepos) {
+      if (item.repoId === id) {
+        isStarred = true
+        break
+      }
+    }
+
+    return isStarred
+  }
+
   const handleStarRepo = async (repo) => {
-    const isStarred = starredRepos.find(
-      (starredRepo) => starredRepo.repoId === repo.id
-    );
+    let xId = repo.id ? repo.id : repo.repoId
+    const isStarred = isRepoStarred(xId)
+
+    console.log(isStarred, 'started', repo.repoId)
 
     if (!isStarred) {
       // Create a new repository object based on the schema
@@ -123,22 +137,9 @@ const SearchComponent = ({
         console.error("Error starring repository", error);
       }
     } else {
-      handleRemoveFromStarred(repo.id)
+      handleRemoveFromStarred(xId)
     }
   };
-
-  const isRepoStarred = (id) => {
-    let isStarred = false;
-
-    for (let item of starredRepos) {
-      if (item.repoId === id) {
-        isStarred = true
-        break
-      }
-    }
-
-    return isStarred
-  }
 
   const isThisRepoStarred = (id) => {
     const colorHandler = {
